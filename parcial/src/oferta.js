@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 export default class oferta extends Component {
-    state = this.props.oferta;
+    state = {
+        "oferta": this.props.oferta
+      };
     renderOfert() {
         return this.state.valor == "0" ? <b>"Oferta no aseptada"</b>: this.state.valor;
       }
