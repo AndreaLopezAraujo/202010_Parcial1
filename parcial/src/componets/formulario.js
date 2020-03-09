@@ -12,7 +12,6 @@ export default class formulario extends Component {
     };
     this.handleImput=this.handleImput.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
-    this.handleBotton=this.handleBotton.bind(this);
   }
   handleImput(e)
   {
@@ -33,10 +32,6 @@ export default class formulario extends Component {
         boton:true
       })
   };
-  handleBotton()
-  {
-    
-  }
   render() {
     return (
       <div>

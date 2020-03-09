@@ -16,6 +16,7 @@ export default class ofertas extends Component {
       boton:true
     }
     this.handleAddUsuarios=this.handleAddUsuarios.bind(this);
+    this.handleOnClik=this.handleOnClik.bind(this);
   }
   handleAddUsuarios(usuario)
   {
@@ -29,6 +30,19 @@ export default class ofertas extends Component {
     
     console.log(this.state.boton)
   };
+  handleOnClik= () => {
+  var r=this.state.usuarios.razon
+  var v=100000
+  var val=false
+   var oferta=
+   {
+     valor:v,
+     razon:r,
+     valida:val
+   }
+   console.log(oferta)
+   actuales.push(oferta);
+  }
   render() {
     return (
       <div>
@@ -36,7 +50,7 @@ export default class ofertas extends Component {
         <Formulario onAddUser={this.handleAddUsuarios}/>
         <h1>Listado de ofertas</h1>
          {this.state.actuales.map( (e,i) => <Oferta key={i} oferta={e}/>)}
-        <button type="submit" class="btn btn-primary" disabled={this.state.boton}>Ofertar</button>
+        <button type="submit" class="btn btn-primary" disabled={this.state.boton} onClick={this.handleOnClik()}>Ofertar</button>
       </div>
     );
   }
