@@ -5,7 +5,7 @@ const assert = require('assert');
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'chat';
+const dbName = 'Users';
 
 // Create a new MongoClient
 const client = new MongoClient(url, { useUnifiedTopology: true });
@@ -23,9 +23,9 @@ const getDatabase = (callback) => {
     });
 }
 
-const insertDocuments = (db, callback, message) => {
-    const collection = db.collection('messages');
-    collection.insertMany([message], function (err, result) {
+const insertDocuments = (db, callback, user) => {
+    const collection = db.collection('user');
+    collection.insertMany([user], function (err, result) {
         console.log("Inserting document!")
         callback(result);
     });
@@ -33,7 +33,7 @@ const insertDocuments = (db, callback, message) => {
 
 const findDocuments = function (db, callback) {
     // Get the documents collection
-    const collection = db.collection('messages');
+    const collection = db.collection('users');
     // Find some documents
     collection.find({}).toArray(function (err, docs) {
         assert.equal(err, null);
