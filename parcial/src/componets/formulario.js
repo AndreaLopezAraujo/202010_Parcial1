@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {usuarios} from './Json/usuarios.json'
-console.log(usuarios)
 
 export default class formulario extends Component {
   constructor()
@@ -8,10 +7,12 @@ export default class formulario extends Component {
     super();
     this.state={
       NIT:'',
-      Razon:''
+      Razon:'',
+      boton:false,
     };
     this.handleImput=this.handleImput.bind(this);
-
+    this.handleSubmit=this.handleSubmit.bind(this);
+    this.handleBotton=this.handleBotton.bind(this);
   }
   handleImput(e)
   {
@@ -21,13 +22,25 @@ export default class formulario extends Component {
         [id]:value
       }
     )
-    console.log("aqui");
-    console.log(this.state);
   };
+  handleSubmit(e)
+  {
+    e.preventDefault();
+    this.props.onAddUser(this.state);
+    console.log(this.state);
+    this.setState(
+      {
+        boton:true
+      })
+  };
+  handleBotton()
+  {
+    
+  }
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div class="form-group">
           <label for="exampleInputEmail1">NIT</label>
           <input  class="form-control" id="NIT"  placeholder="Número de Identificacíon Tributaria" onChange={this.handleImput}></input>
@@ -36,8 +49,9 @@ export default class formulario extends Component {
           <label for="exampleInputEmail1">Razón Social</label>
           <input  class="form-control" id="Razon"  placeholder="Nombre del participante" onChange={this.handleImput}></input>
           </div>
-          <button type="submit" class="btn btn-primary">Registrarse</button>
+          <button type="submit" class="btn btn-primary" disabled={this.state.boton}>Registrarse</button>
         </form>
+        <hr></hr>
       </div>
     );
   }
