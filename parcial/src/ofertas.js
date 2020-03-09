@@ -19,7 +19,7 @@ export default class ofertas extends Component {
     return (
       <div>
         {this.state.ofertas.map((e, i) => <Oferta key={i} oferta={e} />)}
-        <button type="submit" class="btn btn-primary">Ofertar</button>
+        <button type="submit" class="btn btn-primary" disabled="true">Ofertar</button>
       </div>
     );
   }
