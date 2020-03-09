@@ -42,8 +42,9 @@ export default class ofertas extends Component {
       this.setState({
         boton: true
       });
-      alert("La oferta de "+r+" de"+v+" fue aseptada")
+      alert("La oferta de "+r+" de $"+v+" fue aseptada")
     }
+    else{ alert("La oferta de "+r+" de $"+v+" no fue aseptada")}
     var oferta = {
       valor: v,
       razon: r,
