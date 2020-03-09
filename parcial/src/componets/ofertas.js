@@ -1,25 +1,27 @@
 import React, { Component } from "react";
+import {usuarios} from './Json/usuarios.json'
+import {actuales} from './Json/ofertas.json'
 import Oferta from "./oferta";
+console.log(actuales)
+
 
 export default class ofertas extends Component {
-  componentDidMount() {
-    const url = "/ofertas";
-    fetch(url)
-      .then(res => {
-        return res.json();
-      }).then(ofertas => {
-        this.setState({ ofertas })
-      })
+  constructor ()
+  {
+    super();
+    this.state={
+      actuales: actuales,
+      usuarios:usuarios
+    }
   }
-  state = {
-    "ofertas": [
-    ]
-  };
+  renderUsuarios() {
+    return this.state.usuarios.length === 0 ?true: false;
+  }
   render() {
     return (
       <div>
-        {this.state.ofertas.map((e, i) => <Oferta key={i} oferta={e} />)}
-        <button type="submit" class="btn btn-primary" disabled="true">Ofertar</button>
+         {this.state.actuales.map( (e,i) => <Oferta key={i} oferta={e}/>)}
+        <button type="submit" class="btn btn-primary" disabled={this.renderUsuarios()}>Ofertar</button>
       </div>
     );
   }

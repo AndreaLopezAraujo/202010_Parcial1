@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {usuarios} from './Json/usuarios.json'
+console.log(usuarios)
 
 export default class formulario extends Component {
   render() {
