@@ -45,7 +45,7 @@ export default class ofertas extends Component {
       val = true;
       alert("La oferta de " + r + " de $" + v + " fue aceptada");
     } else {
-      alert("La oferta de " + r + " de $" + v + " no fue aceptada");
+      alert("La oferta de " + r + " no fue aceptada");
     }
     var oferta = {
       valor: v,
@@ -89,7 +89,7 @@ export default class ofertas extends Component {
         ))}
         <button
           type="submit"
-          class="btn btn-primary"
+          className="btn btn-primary"
           disabled={this.state.boton}
           onClick={this.handleOnClik}
         >

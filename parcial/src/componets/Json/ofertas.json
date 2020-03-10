@@ -1,15 +1,5 @@
 {
     "actuales":[
-        {
-            "valor":150000000,
-            "razon":"Empresa1",
-            "valida":false
-        },
-        {
-            "valor":155000000,
-            "razon":"Empresa2",
-            "valida":false
-        }
-
+        
     ]
 }

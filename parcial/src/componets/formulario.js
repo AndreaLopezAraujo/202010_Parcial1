@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {usuarios} from './Json/usuarios.json'
 
 export default class formulario extends Component {
   constructor()
@@ -36,15 +35,15 @@ export default class formulario extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
-          <label for="exampleInputEmail1">NIT</label>
-          <input  class="form-control" id="NIT"  placeholder="Número de Identificacíon Tributaria" onChange={this.handleImput}></input>
+          <div className="form-group">
+          <label htmlFor="exampleInputEmail1">NIT</label>
+          <input  className="form-control" id="NIT"  placeholder="Número de Identificacíon Tributaria" onChange={this.handleImput}></input>
           </div>
-          <div class="form-group">
-          <label for="exampleInputEmail1">Razón Social</label>
-          <input  class="form-control" id="Razon"  placeholder="Nombre del participante" onChange={this.handleImput}></input>
+          <div className="form-group">
+          <label  htmlFor="exampleInputEmail1">Razón Social</label>
+          <input  className="form-control" id="Razon"  placeholder="Nombre del participante" onChange={this.handleImput}></input>
           </div>
-          <button type="submit" class="btn btn-primary" disabled={this.state.boton}>Registrarse</button>
+          <button type="submit" className="btn btn-primary" disabled={this.state.boton}>Registrarse</button>
         </form>
         <hr></hr>
       </div>
