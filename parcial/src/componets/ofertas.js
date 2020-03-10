@@ -19,6 +19,7 @@ export default class ofertas extends Component {
     };
     this.handleAddUsuarios = this.handleAddUsuarios.bind(this);
     this.handleOnClik = this.handleOnClik.bind(this);
+    this.usarBoton=this.usarBoton.bind(this);
   }
   handleAddUsuarios(usuario) {
     usuarios.push(usuario);
@@ -29,22 +30,23 @@ export default class ofertas extends Component {
     us = usuario["Razon"];
   }
   handleOnClik = () => {
+    this.setState({
+      boton: true
+    })
     this.valortotal();
     var r = us;
     var v = 150000000;
     if (max > 0) {
       v = max + Math.floor(Math.random() * (10000000 - 5000000)) + 5000000;
     }
-    this.probabilidad()
+    this.probabilidad();
     var val = false;
-    if(PO>PB){
-      val=true;
-      this.setState({
-        boton: true
-      });
-      alert("La oferta de "+r+" de $"+v+" fue aseptada")
+    if (PO > PB) {
+      val = true;
+      alert("La oferta de " + r + " de $" + v + " fue aceptada");
+    } else {
+      alert("La oferta de " + r + " de $" + v + " no fue aceptada");
     }
-    else{ alert("La oferta de "+r+" de $"+v+" no fue aseptada")}
     var oferta = {
       valor: v,
       razon: r,
@@ -55,6 +57,10 @@ export default class ofertas extends Component {
     this.setState({
       actuales: [...this.state.actuales, oferta]
     });
+    if (val === false) {
+      console.log("aqui")
+      setTimeout(this.usarBoton,30000)
+    }
   };
   valortotal() {
     var event = actuales;
@@ -62,10 +68,15 @@ export default class ofertas extends Component {
       if (max < event[i].valor) max = event[i].valor;
     }
   }
-  probabilidad()
+  probabilidad() {
+    PB = Math.random() * (0.8 - 0.3) + 0.3;
+    PO = Math.random() * (0.8 - 0.3) + 0.3;
+  }
+  usarBoton()
   {
-    PB=Math.random() * (0.8 - 0.3)+0.3
-    PO=Math.random() * (0.8 - 0.3)+0.3
+    this.setState({
+      boton: false
+    })
   }
   render() {
     return (

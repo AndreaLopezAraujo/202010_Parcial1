@@ -5,7 +5,7 @@ export default class oferta extends Component {
         "oferta": this.props.oferta
       };
     renderOfert() {
-        return this.state.oferta.valida === false ?"Oferta no aseptada": <b>Oferta aceptada. valor:${this.state.oferta.valor}</b>;
+        return this.state.oferta.valida === false ?"Oferta no aceptada": <b>Oferta aceptada. valor:${this.state.oferta.valor}</b>;
       }
     render() {
         return (
